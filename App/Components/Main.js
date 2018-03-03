@@ -18,7 +18,7 @@ export default class Main extends React.Component {
     this.state = {
       itemArray: [],
       itemText: '',
-      checkColor: '#9b9b9b'
+      checkcolor: '#9b9b9b'
     }
   }
 
@@ -26,10 +26,12 @@ export default class Main extends React.Component {
     if (this.state.itemText) {
       this.state.itemArray.push({
         item: this.state.itemText,
-        checkColor: this.state.checkColor
+        checkcolor: this.state.checkcolor
       });
-      this.setState({itemArray: this.state.itemArray});
-      this.setState({ itemText: ''});
+      this.setState({ itemArray: this.state.itemArray });
+      this.setState({ itemText: '' });
+    } else {
+      alert('Fill the input field!');
     }
   }
 
@@ -40,11 +42,24 @@ export default class Main extends React.Component {
     });
   }
 
+  checkItem(key) {
+    let item = this.state.itemArray[key];
+    
+    if (item.checkcolor == '#9b9b9b') {
+      this.state.itemArray[key].checkcolor = '#2edb13';
+    } else {
+      this.state.itemArray[key].checkcolor = '#9b9b9b';
+    }
+
+    this.setState({ itemArray: this.state.itemArray });
+  }
+
   render() {
 
     let items = this.state.itemArray.map((val, key) => {
       return <Item key={key} keyval={key} val={val} 
       deleteMethod={() => this.deleteItem(key)}
+      checkMethod={() => this.checkItem(key)}
       />
     }); 
 

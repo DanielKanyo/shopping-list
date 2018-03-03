@@ -18,6 +18,10 @@ export default class Item extends React.Component {
           <MaterialIcons name="delete" size={26} color="#eac448" />
         </TouchableOpacity>
 
+        <TouchableOpacity onPress={this.props.checkMethod} style={styles.checkBtn}>
+          <Ionicons name="ios-checkmark-circle" size={26} color={this.props.val.checkcolor} />
+        </TouchableOpacity>
+
       </View>
     );
   }
@@ -45,5 +49,15 @@ const styles = StyleSheet.create({
     top: 10,
     bottom: 10,
     right: 5
+  },
+  checkBtn: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    padding: 10,
+    top: 10,
+    bottom: 10,
+    right: 40
   }
 });
