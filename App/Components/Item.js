@@ -5,7 +5,13 @@ import {
   View,
   TouchableOpacity 
 } from 'react-native';
-import { MaterialIcons, Ionicons, FontAwesome, Entypo } from '@expo/vector-icons';
+import { 
+  MaterialCommunityIcons, 
+  MaterialIcons, 
+  Ionicons, 
+  FontAwesome, 
+  Entypo 
+} from '@expo/vector-icons';
 
 export default class Item extends React.Component {
   render() {
@@ -15,7 +21,7 @@ export default class Item extends React.Component {
         <Text style={styles.itemText}>{this.props.val.item}</Text>
 
         <TouchableOpacity onPress={this.props.deleteMethod} style={styles.deleteBtn}>
-          <MaterialIcons name="delete" size={26} color="#eac448" />
+          <MaterialCommunityIcons name="delete-circle" size={26} color="#9b9b9b" />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.props.checkMethod} style={styles.checkBtn}>
@@ -48,7 +54,7 @@ const styles = StyleSheet.create({
     padding: 10,
     top: 10,
     bottom: 10,
-    right: 5
+    right: 0
   },
   checkBtn: {
     position: 'absolute',
@@ -58,6 +64,6 @@ const styles = StyleSheet.create({
     padding: 10,
     top: 10,
     bottom: 10,
-    right: 40
+    right: 35
   }
 });
