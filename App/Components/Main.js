@@ -23,13 +23,20 @@ export default class Main extends React.Component {
   }
 
   addItem() {
+    let itemsArray = this.state.itemText.split(',');
+
     if (this.state.itemText) {
-      this.state.itemArray.push({
-        item: this.state.itemText,
-        checkcolor: this.state.checkcolor
-      });
-      this.setState({ itemArray: this.state.itemArray });
-      this.setState({ itemText: '' });
+
+      for (let i = 0; i < itemsArray.length; i++) {
+        itemsArray[i] = itemsArray[i].trim();
+
+        this.state.itemArray.push({
+          item: itemsArray[i],
+          checkcolor: this.state.checkcolor
+        });
+        this.setState({ itemArray: this.state.itemArray });
+        this.setState({ itemText: '' });
+      }
     } else {
       alert('Fill the input field!');
     }
